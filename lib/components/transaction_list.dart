@@ -47,7 +47,7 @@ class TransactionList extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        DateFormat('d MMM y').format(transaction.date),
+                        DateFormat('d MMM y', 'pt_BR').format(transaction.date),
                         style: TextStyle(
                           color: Colors.grey,
                         ),
