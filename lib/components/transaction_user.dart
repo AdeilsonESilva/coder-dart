@@ -42,6 +42,42 @@ class _TransactionUserState extends State<TransactionUser> {
       value: 211.30,
       date: DateTime.now(),
     ),
+    Transaction(
+      id: 't6',
+      title: 'Conta de luz',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't7',
+      title: 'Conta de luz t7',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't8',
+      title: 'Conta de luz t7',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't9',
+      title: 'Conta de luz t7',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't10',
+      title: 'Conta de luz t7',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't11',
+      title: 'Conta de luz t7',
+      value: 211.30,
+      date: DateTime.now(),
+    ),
   ];
 
   _addTransaction(String title, double value) {
