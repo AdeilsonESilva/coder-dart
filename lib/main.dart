@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Transaction(
       id: 't2',
       title: 'Conta de luz',
-      value: 211.30,
+      value: 50211.30,
       date: DateTime.now().subtract(Duration(days: 4)),
     ),
     Transaction(
