@@ -189,6 +189,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     bool _isiOS = Platform.isIOS;
 
+    final iconList = _isiOS ? CupertinoIcons.refresh : Icons.list;
+    final iconChart = _isiOS ? CupertinoIcons.refresh : Icons.show_chart;
+
     final _actions = <Widget>[
       _getIconButton(
         _isiOS ? CupertinoIcons.add : Icons.add,
@@ -196,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       if (_isLandscape)
         _getIconButton(
-          _showChart ? Icons.list : Icons.show_chart,
+          _showChart ? iconList : iconChart,
           () {
             setState(() {
               _showChart = !_showChart;
@@ -231,49 +234,51 @@ class _MyHomePageState extends State<MyHomePage> {
         _appBar.preferredSize.height -
         mediaQuery.padding.top;
 
-    final _bodyPlage = SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          // if (_isLandscape)
-          //   Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: <Widget>[
-          //       Text('Exibir gráfico'),
-          //       Switch.adaptive(
-          //         activeColor: Theme.of(context).accentColor,
-          //         value: _showChart,
-          //         onChanged: (value) {
-          //           setState(() {
-          //             _showChart = value;
-          //           });
-          //         },
-          //       ),
-          //     ],
-          //   ),
-          if (_showChart || !_isLandscape)
-            Container(
-              height: avaliableHeight * (_isLandscape ? .8 : .25),
-              child: Chart(_recentTransactions),
-            ),
-          if (!_showChart || !_isLandscape)
-            Container(
-              height: avaliableHeight * (_isLandscape ? 1 : .75),
-              width: double.infinity,
-              child: TransactionList(_transactions, _deleteTransaction),
-            ),
-        ],
+    final _bodyPage = SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            // if (_isLandscape)
+            //   Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: <Widget>[
+            //       Text('Exibir gráfico'),
+            //       Switch.adaptive(
+            //         activeColor: Theme.of(context).accentColor,
+            //         value: _showChart,
+            //         onChanged: (value) {
+            //           setState(() {
+            //             _showChart = value;
+            //           });
+            //         },
+            //       ),
+            //     ],
+            //   ),
+            if (_showChart || !_isLandscape)
+              Container(
+                height: avaliableHeight * (_isLandscape ? .8 : .25),
+                child: Chart(_recentTransactions),
+              ),
+            if (!_showChart || !_isLandscape)
+              Container(
+                height: avaliableHeight * (_isLandscape ? 1 : .75),
+                width: double.infinity,
+                child: TransactionList(_transactions, _deleteTransaction),
+              ),
+          ],
+        ),
       ),
     );
 
     return _isiOS
         ? CupertinoPageScaffold(
-            child: _bodyPlage,
+            child: _bodyPage,
             navigationBar: _appBar,
           )
         : Scaffold(
             appBar: _appBar,
-            body: _bodyPlage,
+            body: _bodyPage,
             floatingActionButton: _isiOS
                 ? null
                 : FloatingActionButton(
