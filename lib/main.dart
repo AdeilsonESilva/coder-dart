@@ -192,7 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         if (_isLandscape)
           IconButton(
-            icon: Icon(_showChart ? Icons.list : Icons.pie_chart),
+            icon: Icon(_showChart ? Icons.list : Icons.show_chart),
             onPressed: () {
               setState(() {
                 _showChart = !_showChart;
