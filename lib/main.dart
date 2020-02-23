@@ -229,12 +229,12 @@ class _MyHomePageState extends State<MyHomePage> {
             //   ),
             if (_showChart || !_isLandscape)
               Container(
-                height: avaliableHeight * (_isLandscape ? .7 : .25),
+                height: avaliableHeight * (_isLandscape ? .8 : .25),
                 child: Chart(_recentTransactions),
               ),
             if (!_showChart || !_isLandscape)
               Container(
-                height: avaliableHeight * .75,
+                height: avaliableHeight * (_isLandscape ? 1 : .75),
                 width: double.infinity,
                 child: TransactionList(_transactions, _deleteTransaction),
               ),
