@@ -194,11 +194,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             Container(
-              height: avaliableHeight * .3,
+              height: avaliableHeight * .25,
               child: Chart(_recentTransactions),
             ),
             Container(
-              height: avaliableHeight * .7,
+              height: avaliableHeight * .75,
               child: TransactionList(_transactions, _deleteTransaction),
             ),
           ],
