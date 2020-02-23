@@ -1,4 +1,6 @@
 import 'package:expenses/components/adaptative_button.dart';
+import 'package:expenses/components/adaptative_text_field.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -53,18 +55,18 @@ class _TransactionFormState extends State<TransactionForm> {
           ),
           child: Column(
             children: <Widget>[
-              TextField(
-                decoration: InputDecoration(labelText: 'Título'),
+              AdaptativeTextfield(
+                label: 'Título',
                 controller: _titleController,
                 onSubmitted: (_) => _submitForm(),
               ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Valor (R\$)'),
+              AdaptativeTextfield(
+                label: 'Valor (R\$)',
                 controller: _valueController,
+                onSubmitted: (_) => _submitForm(),
                 keyboardType: TextInputType.numberWithOptions(
                   decimal: true,
                 ),
-                onSubmitted: (_) => _submitForm(),
               ),
               Container(
                 height: 70,
